@@ -1,0 +1,222 @@
+//Various Banking Operations
+#include <stdio.h>
+#include <stdlib.h>
+struct bank
+{
+int account_number;
+char account_holder_name[10][10];
+float bank_balance;
+int internet_facility;
+int pin;
+int account_type;
+}
+b[50];
+int main()
+{
+char Name[50];
+long Mobile_No;
+long amt,Deposit_amt,Withdraw_amt;
+int Our_Password,ps;
+int choice;
+
+printf("\t\t\t\t\t\t**\n\t\t\t\t\t****\n\t\t\t\t*******\n\t\t\t*BANKING
+OPERATIONS*\n\t\t\t\t******\n\t\t\t\t\t****\n\t\t\t\t\t\t***\n");
+printf("\n\nKindly enter your name : ");
+gets(Name);
+printf("\nEnter your mobile number : ");
+scanf("%ld",&Mobile_No);
+printf("\nHow much amount you want to deposite at initial ?: ");
+scanf("%ld",&amt);
+
+printf("Enter your password : ");
+scanf("%d",&Our_Password);
+printf("\n\t\t*Welcome to your bank Mr./Mrs. %s *",Name);
+printf("\nNow you are ready for Banking !");
+l1 :
+l3:
+
+printf("\nEnter your Password :");
+scanf("%d",&ps);
+if(ps==Our_Password)
+{
+printf("\n\nWelcome to your Bank Mr./Mrs %s",Name);
+printf("\n\nSelect one of the option :");
+printf("\n1) for Balance Checking");
+printf("\n2)for Deposite");
+printf("\n3)for Withdrawl");
+printf("\n4)New Account Records");
+printf("\nEnter choice : ");
+scanf("%d",&choice);
+
+}
+switch(choice)
+{
+case 1:printf("\nYou select option to check balance:");
+printf("\nYour bank balance is %ld",amt);
+break;
+case 2:printf("\nYou select deposite option:");
+printf("\nHow much amount you want to deposit ? :");
+scanf("%ld",&Deposit_amt);
+amt=amt+Deposit_amt;
+printf("\nProccessing .....");
+printf("\nOverall Amount=%ld ",amt);
+printf("\nDeposite sucessfully !!");
+break;
+case 3:printf("\nYou select withdrawal option:");
+l2:
+printf("\nHow many amount you want to withdraw ? :");
+scanf("%ld",&Withdraw_amt);
+if(Withdraw_amt>amt)
+{
+printf("Sufficient fund not available !!");
+goto l2;
+}
+amt=amt-Withdraw_amt;
+printf("\nProccessing .....");
+printf("\nOverall Amount=%ld ",amt);
+printf("\nSuccessfully withdrawal !!!");
+break;
+case 4:printf("\n\n##New Account Records");
+{
+int n;
+printf("\n\t\tWelcome sir/mam\nEnter number of customers for entering their details:
+");
+scanf("%d",&n);
+for(int i=1;i<=n;i++)
+{ printf("\nDetails of account number %d : ",i);
+printf("\nPlease enter your account number : ");
+scanf("%d",&b[i].account_number);
+printf("\nEnter the name of account holder : ");
+scanf("%s",&b[i].account_holder_name);
+printf("\nEnter the balance in your account: ");
+scanf("%f",&b[i].bank_balance);
+printf("\nAre you availed of internet facility? \n(Press:1 for YES / 0 for
+NO)\n:");
+scanf("%d",&b[i].internet_facility);
+printf("\nEnter the PINCODE\n(Note:-Available range of pincode is from 422001
+to 422013,so kindly enter pincode choice between range mentioned.)\n:");
+scanf("%d",&b[i].pin);
+printf("\nWhat is the type of your account : ");
+printf("\n1)Saving\n2)Recurring\n3)Deposit\n:");
+scanf("%d",&b[i].account_type);
+} for(int i=1;i<=n;i++)
+{
+if(b[i].bank_balance>=1000000)
+{
+printf("\nThe Golden customer is verified for account number : %d
+",b[i].account_number);
+}
+else if(b[i].bank_balance>=500000&&b[i].bank_balance<1000000)
+{
+printf("The silver customer is verified for account number : %d
+\n",b[i].account_number);
+}
+else
+{
+printf("The General customer is verified for account number :
+%d\n",b[i].account_number);
+}
+}
+{
+printf("\n\n Account numbers which are using internet facility:\n");
+printf("account holder name\t\taccount number\n");
+}
+for(int i=1;i<=n;i++)
+{
+if(b[i].internet_facility)
+{
+printf("%s\t\t\t\t\t%d\n",b[i].account_holder_name,b[i].account_number);
+}
+}
+{
+printf("\nDisplaying account number with their account type:\n");
+printf("account number\t\taccount type\n");
+}
+for(int i=1;i<=n;i++)
+{
+if(b[i].account_type==1)
+{
+printf(" \n%d\t\t\t1)saving\n",b[i].account_number);
+}
+if(b[i].account_type==2)
+{
+printf("\n%d\t\t\t2)recurring\n",b[i].account_number);
+}
+if(b[i].account_type==3)
+{
+printf("\n%d\t\t\t3)deposit\n",b[i].account_number);
+}
+}
+for(int i=1;i<=n;i++)
+{
+if(b[i].pin==422001)
+{
+printf("This account number :%d has geographical location=
+Ladakh",b[i].account_number);
+}
+if(b[i].pin==422002)
+{
+printf("This account number: %d has geographical location=
+Odisha",b[i].account_number);
+}
+if(b[i].pin==422003)
+{
+printf("This account number :%d has geographical location=
+Maharashtra",b[i].account_number);
+}
+if(b[i].pin==422004)
+{
+printf("This account number :%d has geographical
+location=Punjab\n",b[i].account_number);
+}
+if(b[i].pin==422005)
+{
+printf("This account number :%d has geographical location=
+Goa\n",b[i].account_number);
+}
+if(b[i].pin==422006)
+{
+printf("This account number :%d has geographical
+location=Jammu\n",b[i].account_number);
+}
+if(b[i].pin==422007)
+{
+printf("This account number :%d has geographical location= Uttar
+Pradesh\n",b[i].account_number);
+}
+if(b[i].pin==4220012)
+{
+printf("This account number :%d has geographical location=
+Telangana\n",b[i].account_number);
+}
+if(b[i].pin==4220013)
+{
+printf("\nThis account number :%d has geographical location= West
+Bengal",b[i].account_number);
+}}
+}
+}
+printf("\n\nDo you want to continue the banking");
+printf("\n 1) for Yes\n 2) for No\n\t\tEnter:");
+scanf("%d",&choice);
+if(choice==1)
+
+{
+goto l3;
+}
+
+else if(choice == 2)
+{
+goto l4;
+}
+
+else
+{
+printf("\n\nIn-valid Password !!");
+goto l1;
+}
+l4 :
+
+printf("\n\nThank you for banking with us !! ");
+return 0;
+}
